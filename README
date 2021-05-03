@@ -1,1 +1,11 @@
-https://www.boost.org/users/license.html
+HOW-TO-BUILD (VS2012-WIN32):
+- %comspec% /k ""C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\vcvarsall.bat"" x86;
+- call bootstrap.bat;
+- b2.exe -j8 toolset=msvc-11.0_xp address-model=32 architecture=x86 link=static threading=multi runtime-link=shared stage --stagedir=stage/win32 --with-program_options --with-regex --with-filesystem --with-system --with-iostreams -sZLIB_SOURCE="<full-path-to-directory-with-ZLIB-SOURCEs>" -sZLIB_INCLUDE="<full-path-to-directory-with-ZLIB-INCLUDEs>" -sZLIB_LIBPATH="<full-path-to-directory-with-ZLIB-LIBs>";
+- b2.exe -j8 toolset=msvc-11.0_xp address-model=32 architecture=x86 link=shared threading=multi runtime-link=shared stage --stagedir=stage/win32 --with-program_options --with-regex --with-filesystem --with-system --with-iostreams -sZLIB_SOURCE="<full-path-to-directory-with-ZLIB-SOURCEs>" -sZLIB_INCLUDE="<full-path-to-directory-with-ZLIB-INCLUDEs>" -sZLIB_LIBPATH="<full-path-to-directory-with-ZLIB-LIBs>";
+- USE -D "BOOST_ALL_DYN_LINK" for DLL linking;
+
+TESTED-WITH:
+- vs 2012;
+
+https://www.boost.org
